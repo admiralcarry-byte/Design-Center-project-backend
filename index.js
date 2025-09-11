@@ -28,10 +28,6 @@ const connectDB = async () => {
     console.log('🔌 Connecting to MongoDB:', mongoURI.replace(/\/\/.*@/, '//***:***@')); // Hide credentials in logs
     
     await mongoose.connect(mongoURI, {
-      // Core connection options
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-
       // Timeouts (tweak based on your app/network)
       connectTimeoutMS: 100000,  // 100s max to initially connect
       socketTimeoutMS: 450000,   // 450s max inactivity before close
