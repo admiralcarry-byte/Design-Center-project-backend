@@ -6,8 +6,11 @@ const app = express();
 // CORS configuration
 const corsOptions = {
   origin: [
+    'https://turbo-enigma-frontend.vercel.app',
+    'https://turbo-enigma-frontend-bydm.vercel.app',
     'https://turbo-enigma-jw51.vercel.app',
     'https://turbo-enigma.vercel.app',
+    'https://turbo-enigma-frontend-sq3h.vercel.app',
     'http://localhost:3000',
     'http://localhost:3001'
   ],
