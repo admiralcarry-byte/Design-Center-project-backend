@@ -1,0 +1,40 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "api/index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon node index.js",
+    "build": "echo 'Backend build completed - no compilation needed'",
+    "init-db": "node scripts/initializeDatabase.js",
+    "update-templates": "node scripts/updateExistingTemplates.js",
+    "fix-real-estate": "node scripts/fixRealEstateTemplates.js",
+    "cleanup-orphaned": "node cleanup-orphaned-files.js",
+    "migrate-atlas": "node scripts/migrateToAtlas.js",
+    "test-atlas": "node scripts/testAtlasConnection.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.1692.0",
+    "axios": "^1.11.0",
+    "bcryptjs": "^3.0.2",
+    "canvas": "^3.2.0",
+    "concurrently": "^9.2.1",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.1",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.17.2",
+    "multer": "^2.0.2",
+    "node-fetch": "^2.7.0",
+    "openai": "^5.13.1",
+    "pdfkit": "^0.17.1",
+    "uuid": "^11.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}

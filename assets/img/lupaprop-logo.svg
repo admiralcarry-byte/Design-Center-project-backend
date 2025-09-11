@@ -1,0 +1,40 @@
+<svg width="300" height="120" viewBox="0 0 300 120" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="60" cy="60" r="55" fill="none" stroke="#31dFC5" stroke-width="2"/>
+  
+  <!-- Main magnifying glass with house -->
+  <g fill="none" stroke="#31dFC5" stroke-width="2">
+    <!-- Magnifying glass lens -->
+    <circle cx="60" cy="60" r="25" fill="none" stroke="#31dFC5" stroke-width="2"/>
+    
+    <!-- House inside magnifying glass -->
+    <rect x="50" y="50" width="20" height="15" fill="none" stroke="#31dFC5" stroke-width="2"/>
+    <polygon points="50,50 60,40 70,50" fill="none" stroke="#31dFC5" stroke-width="2"/>
+    
+    <!-- Magnifying glass handle -->
+    <line x1="75" y1="75" x2="85" y2="85" stroke="#31dFC5" stroke-width="2"/>
+    <circle cx="87" cy="87" r="3" fill="#31dFC5"/>
+  </g>
+  
+  <!-- Brand name: LupaProp -->
+  <text x="130" y="45" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#31dFC5">Lupa</text>
+  
+  <!-- Magnifying glass O in "Lupa" -->
+  <g transform="translate(175, 35)">
+    <circle cx="0" cy="0" r="8" fill="none" stroke="#31dFC5" stroke-width="2"/>
+    <line x1="0" y1="-8" x2="0" y2="8" stroke="#31dFC5" stroke-width="1"/>
+    <line x1="-8" y1="0" x2="8" y2="0" stroke="#31dFC5" stroke-width="1"/>
+  </g>
+  
+  <text x="190" y="45" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#31dFC5">Prop</text>
+  
+  <!-- Magnifying glass O in "Prop" -->
+  <g transform="translate(235, 35)">
+    <circle cx="0" cy="0" r="8" fill="none" stroke="#31dFC5" stroke-width="2"/>
+    <line x1="0" y1="-8" x2="0" y2="8" stroke="#31dFC5" stroke-width="1"/>
+    <line x1="-8" y1="0" x2="8" y2="0" stroke="#31dFC5" stroke-width="1"/>
+  </g>
+  
+  <!-- Spanish tagline -->
+  <text x="130" y="75" font-family="Arial, sans-serif" font-size="12" font-weight="normal" fill="#31dFC5" text-transform="uppercase">CADA PROPIEDAD, UNA OPORTUNIDAD</text>
+</svg>
