@@ -10,7 +10,8 @@ const corsOptions = {
     'https://turbo-enigma-frontend-sq3h.vercel.app',
     'https://design-center.netlify.app',
     'http://localhost:3000',
-    'http://localhost:3001'
+    'http://localhost:3001',
+    'https://designcenter.vercel.app'
   ],
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
   credentials: true,
