@@ -1104,6 +1104,78 @@ router.post('/save-design-large', async (req, res) => {
   }
 });
 
+// POST /api/templates/save-thumbnail - Save template thumbnail
+router.post('/save-thumbnail', async (req, res) => {
+  try {
+    const { templateId, templateKey, thumbnailData } = req.body;
+    
+    if (!thumbnailData) {
+      return res.status(400).json({ error: 'No thumbnail data provided' });
+    }
+
+    console.log('📸 Saving thumbnail for template:', templateId || templateKey);
+
+    // Generate thumbnail filename
+    const timestamp = Date.now();
+    const filename = `thumbnail-${templateId || templateKey}-${timestamp}.png`;
+    const filePath = path.resolve(__dirname, '../uploads/thumbnails', filename);
+
+    // Ensure thumbnails directory exists
+    const thumbnailsDir = path.dirname(filePath);
+    if (!fs.existsSync(thumbnailsDir)) {
+      fs.mkdirSync(thumbnailsDir, { recursive: true });
+    }
+
+    // Convert data URL to buffer and save
+    const base64Data = thumbnailData.replace(/^data:image\/png;base64,/, '');
+    const buffer = Buffer.from(base64Data, 'base64');
+    fs.writeFileSync(filePath, buffer);
+
+    console.log('✅ Thumbnail saved:', filename);
+
+    // Update template with thumbnail filename if templateId provided
+    if (templateId) {
+      await Template.findByIdAndUpdate(templateId, { 
+        thumbnailFilename: filename,
+        updatedAt: new Date()
+      });
+      console.log('✅ Template updated with thumbnail filename');
+    }
+
+    res.json({
+      success: true,
+      filename: filename,
+      message: 'Thumbnail saved successfully'
+    });
+  } catch (error) {
+    console.error('❌ Error saving thumbnail:', error);
+    res.status(500).json({ error: 'Failed to save thumbnail' });
+  }
+});
+
+// GET /api/templates/thumbnail/:filename - Serve thumbnail image
+router.get('/thumbnail/:filename', (req, res) => {
+  try {
+    const { filename } = req.params;
+    const filePath = path.resolve(__dirname, '../uploads/thumbnails', filename);
+    
+    // Check if file exists
+    if (!fs.existsSync(filePath)) {
+      return res.status(404).json({ error: 'Thumbnail not found' });
+    }
+    
+    // Set appropriate headers
+    res.setHeader('Content-Type', 'image/png');
+    res.setHeader('Cache-Control', 'public, max-age=3600'); // Cache for 1 hour
+    
+    // Send the file
+    res.sendFile(filePath);
+  } catch (error) {
+    console.error('❌ Error serving thumbnail:', error);
+    res.status(500).json({ error: 'Failed to serve thumbnail' });
+  }
+});
+
 // POST /api/templates - Create new template
 router.post('/', async (req, res) => {
   try {

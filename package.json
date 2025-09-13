@@ -2,7 +2,7 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "api/index.js",
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon node index.js",
@@ -22,6 +22,7 @@
     "axios": "^1.11.0",
     "bcryptjs": "^3.0.2",
     "canvas": "^3.2.0",
+    "cloudinary": "^2.7.0",
     "concurrently": "^9.2.1",
     "cors": "^2.8.5",
     "dotenv": "^17.2.1",
@@ -30,6 +31,7 @@
     "mongoose": "^8.17.2",
     "multer": "^2.0.2",
     "node-fetch": "^2.7.0",
+    "node-vibrant": "^4.0.3",
     "openai": "^5.13.1",
     "pdfkit": "^0.17.1",
     "uuid": "^11.1.0"

@@ -1,7 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const corsMiddleware = require('./middleware/cors');
+const cors = require('cors');
 const path = require('path');
+const corsMiddleware = require('./middleware/cors');
 require('dotenv').config();
 
 // Import routes
@@ -12,8 +13,9 @@ const canvaRoutes = require('./routes/canva');
 
 const app = express();
 const PORT = process.env.PORT || 4000;
-   
-// Middleware
+
+
+
 app.use(corsMiddleware);
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ extended: true, limit: '50mb' }));
@@ -28,6 +30,10 @@ const connectDB = async () => {
     console.log('🔌 Connecting to MongoDB:', mongoURI.replace(/\/\/.*@/, '//***:***@')); // Hide credentials in logs
     
     await mongoose.connect(mongoURI, {
+      // Core connection options
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+
       // Timeouts (tweak based on your app/network)
       connectTimeoutMS: 100000,  // 100s max to initially connect
       socketTimeoutMS: 450000,   // 450s max inactivity before close
