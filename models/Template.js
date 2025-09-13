@@ -75,6 +75,7 @@ const TemplateSchema = new mongoose.Schema({
     type: String,
     default: '/uploads/default-thumbnail.png'
   },
+  thumbnailFilename: { type: String }, // PNG filename for actual template preview
   fileUrl: { type: String },
   objects: [CanvasObjectSchema], // Canvas objects for the template
   backgroundColor: { type: String, default: '#ffffff' },
