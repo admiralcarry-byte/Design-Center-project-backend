@@ -21,6 +21,9 @@ const cleanupDatabase = async () => {
       'Modern Family',
       'Summer Sale Flyer'
     ];
+
+
+    
     
     for (const templateName of templatesToRemove) {
       const result = await Template.deleteOne({ name: templateName });
